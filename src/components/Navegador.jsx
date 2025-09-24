@@ -45,7 +45,7 @@ function Navegador() {
                 <Nav.Link href="https://examscadiz.com/convocatorias-examenes/" target="_blank">Fecha Exámenes</Nav.Link>
                 <Nav.Item>
                   <div className="main-red-button">
-                    { refresh ? 
+                    { !refresh ? 
                     <Button as={Link} to="/alumno" variant="danger">
                       Zona alumno
                     </Button>
