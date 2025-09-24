@@ -5,8 +5,8 @@ import AppLayout from './layouts/AppLayout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import AlumnLayout from './features/alumno/AlumnLayout';
-import MyProfile from './features/zona-comun/MyProfile';
-import Resources from './features/zona-comun/Resources';
+import MyProfile from './features/zonacomun/MyProfile';
+import Resources from './features/zonacomun/Resources';
 
 function App() {
   return (

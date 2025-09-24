@@ -1,6 +1,6 @@
-import { Card, CardBody, CardFooter, CardImg, Col, FormControl, FormGroup, Row } from "react-bootstrap";
+import { Card, CardBody, CardFooter, CardImg, Col, FormControl,Row } from "react-bootstrap";
 import anonimus from '../../assets/images/anonimus.jpg';
-import { Icon } from "@iconify/react/dist/iconify.js";
+
 
 function MyProfile() {
     return (
