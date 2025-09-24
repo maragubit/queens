@@ -1,7 +1,4 @@
 import { Container } from "react-bootstrap";
-import b1 from '../../assets/images/b1.png'
-import b2 from '../../assets/images/b2.png'
-import c1 from '../../assets/images/c1.png'
 import { Icon } from "@iconify/react/dist/iconify.js";
 function Cursos(){
     return(
