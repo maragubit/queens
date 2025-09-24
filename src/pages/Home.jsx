@@ -26,8 +26,8 @@ function Home() {
                     data-wow-duration="1s"
                     data-wow-delay="1s"
                     >
-                    
-                    <img src={logo} style={{height:"200px", width:"200px", borderRadius:"120px"}}></img>
+
+                    <img src={logo} style={{height:"200px", width:"200px", borderRadius:"120px"}} alt="Logo"></img>
                     <h3 style={{color:"var(--primary)", marginBottom:"40px", marginTop:"10px"}}>Queen's English Institute</h3>
                     <h2>
                         Academia de <em>Inglés</em> en Jerez de la Frontera
