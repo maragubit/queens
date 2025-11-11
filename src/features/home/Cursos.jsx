@@ -1,9 +1,29 @@
 import { Container } from "react-bootstrap";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useEffect, useState } from "react";
+import { getCursos } from "../cursos/apis";
+import { Link } from "react-router-dom";
 function Cursos(){
+    const [cursos, setCursos]=useState([]);
+    const [error, setError]=useState(null);
+    const [loading, setLoading]=useState(true);
+
+    useEffect(()=>{
+        const fetchData=async()=>{
+            try {
+            const response=await getCursos();
+            setCursos(response.data);
+            setLoading(false);
+            } catch (err) {
+            setError(err.message);
+            setLoading(false);
+            }
+        }
+        fetchData();
+    },[])
     return(
         <Container>
-            <h1 className="mb-3">Nuestros cursos <Icon icon="streamline:class-lesson-remix" color="var(--primary)"/></h1>
+            <h1 className="mb-5">Nuestros cursos <Icon icon="streamline:class-lesson-remix" color="var(--primary)"/></h1>
             <div id="about" className="about-us section">
                 
                 <div className="container">
@@ -23,79 +43,33 @@ function Cursos(){
                     <div className="col-lg-8 align-self-center">
                         <div className="services">
                         <div className="row">
+                            {!loading && <>
                             {/* Service 1 */}
-                            <div className="col-lg-6">
-                            <div
-                                className="item wow fadeIn"
-                                data-wow-duration="1s"
-                                data-wow-delay="0.5s"
-                            >
-                                <div className="icon">
-                                <span>B1</span>
-                                </div>
-                                <div className="right-text">
-                                <h4>Inglés B1</h4>
-                                <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                            </div>
+                            {cursos.map((curso)=>(
 
-                            {/* Service 2 */}
                             <div className="col-lg-6">
-                            <div
-                                className="item wow fadeIn"
-                                data-wow-duration="1s"
-                                data-wow-delay="0.7s"
-                            >
-                                <div className="icon">
-                                 <span>B2</span>
-                                </div>
-                                <div className="right-text">
-                                <h4>Inglés B2</h4>
-                                <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                            </div>
-
-                            {/* Service 3 */}
-                            <div className="col-lg-6">
-                            <div
-                                className="item wow fadeIn"
-                                data-wow-duration="1s"
-                                data-wow-delay="0.9s"
-                            >
-                                <div className="icon">
-                                 <span>C1</span>
-                                </div>
-                                <div className="right-text">
-                                <h4>Inglés C1</h4>
-                                <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                            </div>
-
-                            {/* Service 4 */}
-                            <div className="col-lg-6">
-                            <div
-                                className="item wow fadeIn"
-                                data-wow-duration="1s"
-                                data-wow-delay="1.1s"
-                            >
-                                <div className="icon">
-                                <Icon icon="whh:profile" width="50" color="var(--primary)" />
-                                </div>
-                                <div className="right-text">
-                                <h4>Clases personalizadas</h4>
-                                <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
-                                </div>
-                            </div>
-                            </div>
+                                <Link to={`/cursos/${curso.id}`}><div
+                                    className="item wow fadeIn"
+                                    data-wow-duration="1s"
+                                    data-wow-delay="0.5s"
+                                >
+                                    <div className="icon">
+                                        <span>{curso.acronym}</span>
+                                    </div>
+                                    <div >
+                                        <h4>{curso.title}</h4>
+                                        <p className="justif">{curso.short_description}</p>
+                                    </div>
+                                </div></Link>
+                            </div>))}
+                            </>}
                         </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
+            </div>
+            
           {/* End Services */}
         </Container>
     )

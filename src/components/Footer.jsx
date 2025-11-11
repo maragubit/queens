@@ -20,7 +20,7 @@ function Footer(){
                 </Row>
                 </Container>
 
-               <div className="maragubit me-0" ><a  href="https://maragubit.es" target="_blank" rel="noopener noreferrer">maragubit.es</a></div>
+               <div className="maragubit me-0" ><a  href="https://maragubit.es" target="_blank" rel="noopener noreferrer">maragubit tech®</a></div>
             </Container>
         </footer>
     );
