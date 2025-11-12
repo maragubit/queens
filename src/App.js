@@ -10,6 +10,8 @@ import Resources from './features/zonacomun/Resources';
 import Curso from './pages/Curso';
 import TeacherLayout from './layouts/TeacherLayout';
 import Myclassrooms from './features/zonacomun/Myclassrooms';
+import Register from './pages/Register';
+import { PoliticaPrivacidad } from './pages/LegalText';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         </Route>
         <Route path="cursos/:id" element={<Curso />} />
         <Route path="login" element={<Login />} />
+        <Route path="register/:email" element={<Register />} />
+        <Route path="politica-privacidad" element={<PoliticaPrivacidad />} />
       </Route>
       <Route path="*" element={<div><h3>404</h3> Not Found</div>} />
     </Routes>
