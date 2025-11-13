@@ -39,7 +39,7 @@ function Navegador() {
     <Container className="text-center">
       <Row>
         <Col xs={12}>
-          <Navbar expand="lg" className="main-nav tex-center">
+          <Navbar expand="lg" className="main-nav tex-center" expanded={expanded}>
             {/* ***** Logo Start ***** */}
             <Navbar.Brand  as={Link} to="/" className="logo">
             <img
@@ -58,15 +58,15 @@ function Navegador() {
 
             <Navbar.Collapse id="main-navbar-nav">
               <Nav className="ms-auto">
-                <Nav.Link as={Link} to="/" className="active">
+                <Nav.Link as={Link} to="/" className="active" onClick={() => setExpanded(false)}>
                   Home
                 </Nav.Link>
-                <Nav.Link href="#about">About Us</Nav.Link>
-                <Nav.Link href="#services">Instalaciones</Nav.Link>
-                <Nav.Link href="#portfolio">Matrículas</Nav.Link>
+                <Nav.Link href="#about" onClick={() => setExpanded(false)}>About Us</Nav.Link>
+                <Nav.Link href="#services" onClick={() => setExpanded(false)}>Instalaciones</Nav.Link>
+                <Nav.Link href="#portfolio" onClick={() => setExpanded(false)}>Matrículas</Nav.Link>
                 <NavDropdown title="Cursos" id="nav-cursos-dropdown">
                   {!loading && cursos.map((curso)=>(
-                    <NavDropdown.Item key={curso.id} as={Link} to={`/cursos/${curso.id}`}>{curso.title}</NavDropdown.Item>
+                    <NavDropdown.Item key={curso.id} as={Link} to={`/cursos/${curso.id}`} onClick={() => setExpanded(false)}>{curso.title}</NavDropdown.Item>
                   ))} 
                   
                 </NavDropdown>
@@ -74,11 +74,11 @@ function Navegador() {
                 <Nav.Item>
                   <div className="main-red-button">
                     { refresh ? 
-                    <Button as={Link} to={ user?.role !== 'student' ? "/profesor" : "/alumno"} variant="danger">
+                    <Button as={Link} to={ user?.role !== 'student' ? "/profesor" : "/alumno"} variant="danger" onClick={() => setExpanded(false)}>
                       Aula virtual
                     </Button>
                     :
-                    <Button as={Link} to="/login" variant="danger">
+                    <Button as={Link} to="/login" variant="danger" onClick={() => setExpanded(false)}>
                       Login
                     </Button>
                     }

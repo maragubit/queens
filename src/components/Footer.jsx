@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "../assets/images/logot.png"
 import cambridge from "../assets/images/cambridge.jpg"
+import { Link } from "react-router-dom";
 
 function Footer(){
     return(
@@ -13,10 +14,10 @@ function Footer(){
                 </div>
                 <Container className="ms-3" style={{marginTop:"-35px"}}><img src={cambridge} style={{width:"230px"}} alt="Cambridge University Press"/></Container>
                 <Container className="justify-content-md-center" style={{maxWidth:"60%"}}>
-                <Row className=" gx-0 gy-0">
-                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p>Política de privacidad</p></Col>
-                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p>Política de cookies</p></Col>
-                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p>Aviso legal</p></Col>
+                <Row className="legal gx-0 gy-0 text-white">
+                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p><Link to="/politica-privacidad">Política de privacidad</Link></p></Col>
+                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p><Link to="/cookies">Política de cookies</Link></p></Col>
+                        <Col xs={12} md={4} style={{marginTop:"-15px"}}><p><Link to="/aviso-legal">Aviso legal</Link></p></Col>
                 </Row>
                 </Container>
 

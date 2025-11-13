@@ -10,8 +10,8 @@ function Home() {
     <Container>
       <SubNavHome/>
         <div
-        className="main-banner wow fadeIn"
-        id="top"
+        className="main-banner wow fadeIn mt-5"
+        id="top mt-5"
         data-wow-duration="1s"
         data-wow-delay="0.5s"
         >

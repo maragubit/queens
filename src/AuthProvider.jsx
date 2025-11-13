@@ -39,6 +39,6 @@ export function AuthProvider({ children }) {
 
     
 
-    return ( <AuthContext.Provider value={{ user, setUser, access, setAccess, new_access_token,logout }}> {children} </AuthContext.Provider> );
+    return ( <AuthContext.Provider value={{ user, setUser, access, setAccess, new_access_token,logout, get_user_variables }}> {children} </AuthContext.Provider> );
 }
 export function useAuth() { return useContext(AuthContext); }

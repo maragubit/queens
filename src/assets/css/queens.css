@@ -957,8 +957,9 @@ preloader
     margin-left: 16px;
     background: #fe3f40;
     border-radius: 50%;
+}.legal a{
+  color:white;
 }
-
 
 
 /* 
@@ -974,6 +975,7 @@ Banner Style
   padding: 150px 0px 120px 0px;
   position: relative;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .main-banner:after {
