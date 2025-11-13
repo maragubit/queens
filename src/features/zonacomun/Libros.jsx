@@ -11,7 +11,7 @@ function Libros({libros}) {
             <Card key={libro.id} className="mb-3 border-0">
             
             <Card.Title>{libro.title}</Card.Title>
-            <Card.Img src={book} alt={libro.title} style={{ height: '300px' }} />
+            <Card.Img src={book} alt={libro.title} style={{ height: '300px', width: '190px' }} />
             <Card.Text>{libro.author}</Card.Text>
             <Card.Footer className="text-muted"> {libro.course.title}</Card.Footer>
 
