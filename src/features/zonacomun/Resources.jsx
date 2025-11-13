@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, FormControl, Nav, Row } from "react-bootstrap";
+import {useAuth} from "../../AuthProvider";
+import { getLibros } from "./apis";
+import Libros from "./Libros";
 
 
 function Resources() {
 const [title, setTitle] = useState("Libros");
 const [search, setSearch] = useState("");
+const[ libros, setLibros]=useState([]);
+const [librosFiltered, setLibrosFiltered]=useState([]);
+const [loading, setLoading] = useState(true);
+const { access } = useAuth();
 
 function handleSelect(selectedKey) {
   switch (selectedKey) {
@@ -21,6 +28,30 @@ function handleSelect(selectedKey) {
       setTitle("Libros");
   }
 };
+
+useEffect(() => {
+  const fetchLibros = async () => {
+    try {
+      const response = await getLibros(access); 
+      setLibros(response.data);
+      setLibrosFiltered(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching libros:", error);
+    }
+  };
+  fetchLibros();
+}, []);
+
+useEffect(() => {
+  if (title==="Libros") {
+  const filtered = libros.filter((libro) =>
+    libro.title.toLowerCase().includes(search.toLowerCase())
+  );
+  setLibrosFiltered(filtered);
+  }
+}, [search, libros, title]);
+
   return(
   <Container className="w-100">
     <Row className="g-0">
@@ -42,6 +73,9 @@ function handleSelect(selectedKey) {
             <h5>{title}</h5>
             <FormControl className="w-50 justify-content-center mx-auto" placeholder="buscar ..." value={search} onChange={(e)=>setSearch(e.target.value)}/>
         </Col>
+        <Container>
+          {loading ? <p>Loading...</p> : title=== "Libros" && <Libros libros={librosFiltered} /> }
+        </Container>
 
 
     </Row>
