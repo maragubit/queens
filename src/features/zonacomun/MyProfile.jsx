@@ -4,12 +4,10 @@ import { useAuth } from "../../AuthProvider";
 import { useEffect, useState } from "react";
 import { updateUser } from "../users/apis";
 import imgDefault from "../../assets/images/anonimus.jpg"
-import { useNavigate } from "react-router-dom";
 
 function MyProfile() {
     const { user, new_access_token, access, get_user_variables } = useAuth();
     const [error,setError]=useState(null);
-    const navigate = useNavigate();
     useEffect(() => {
         new_access_token();
         get_user_variables(access);
@@ -19,7 +17,7 @@ function MyProfile() {
         const formData = new FormData();
         formData.append('image', img);
         setError(null);
-        window.location.reload()
+        //window.location.reload()
         try{
             await updateUser(user.id,formData,access);
         }catch(err){
