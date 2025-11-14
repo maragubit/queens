@@ -7,6 +7,7 @@ export const updateUser= async(id,img,access)=>{
    return axios.patch(`${domain}/users/${id}/`,img,{
          headers: {
             Authorization: `Bearer ${access}`,
+            "Content-Type": "multipart/form-data",
         }
 })
 }
